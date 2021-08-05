@@ -70,7 +70,7 @@ def get_all_users_descending():
                 'phone': user.phone,
             }
         )
-    return jsonify(all_users.to_array()), 200
+    return jsonify(all_users.to_list()), 200
 
 @app.route('/user/ascending_id', methods=['GET'])
 def get_all_users_ascending():
@@ -87,7 +87,7 @@ def get_all_users_ascending():
                 'phone': user.phone,
             }
         )
-    return jsonify(all_users.to_array()), 200
+    return jsonify(all_users.to_list()), 200
 
 @app.route('/user/<user_id>', methods=['GET'])
 def get_one_user(user_id):
@@ -105,7 +105,7 @@ def get_one_user(user_id):
             }
         )
 
-   user = all_users.get_user_by_id(user_id) 
+    user = all_users.get_user_by_id(user_id) 
 
     return jsonify(user), 200
 
