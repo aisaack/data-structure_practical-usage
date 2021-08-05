@@ -6,13 +6,15 @@ def testing_user_update(user_input):
     API = 'user'
     URL = urljoin(BASE, API)
     r = requests.post(URL, json=user_input)
-    print(r.json(), r.status_code)
+    print(r.json())
+    assert r.status_code == 200
 
 def testing_descending_id():
     API = 'user/descending_id'
     URL = urljoin(BASE, API)
     r = requests.get(URL)
-    print(r.text, r.status_code)
+    print(r.text)
+    assert r.status_code == 200
 
 if __name__ == '__main__':
 #    user_input = {
