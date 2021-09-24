@@ -5,7 +5,7 @@
 
 It's like calling a function from different application. Once one of the parties sends request to retrieve a data then other one returns response.
 ## Related data structure
-- [x] Linked list
+- [x] [Linked list](https://github.com/aisaack/data-structure_practical-usage#linked-list)
 - [x] Hash table(To be updated)
 - [ ] Binary search
 - [ ] Stack
