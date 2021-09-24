@@ -1,12 +1,12 @@
 class Node:
-    def __init__(self, data=None, next_node=None):
+    def __init__(self, data, next_node=None):
         self.data = data
         self.next_node = next_node
 
 class LinkedList:
     def __init__(self):
         self.head = None
-        self.last_node = None
+        self.tail = None
 
     def to_list(self):
         out = []
@@ -38,19 +38,19 @@ class LinkedList:
         ll_string += 'None'
         print(ll_string)
 
-    def insert_beginning(self, data):
+    def insert_at_heaed(self, data):
         if self.head is None:
             self.head = Node(data, None)
-            self.last_node = self.head
+            self.tail = self.head
 
         new_node = Node(data, self.head)
         self.head = new_node
 
-    def insert_at_end(self, data):
+    def insert_at_tail(self, data):
         if self.head is None:
-            self.insert_beginning(data)
+            self.insert_at_heaed(data)
 
-        # if self.last_node is None:
+        # if self.tail is None:
         #     print('The last Node is None')
         #     node = self.head
         #     while node.next_node:
@@ -61,6 +61,6 @@ class LinkedList:
         #     self.last_ndoe = node.next_node
 
         # else:
-        self.last_node.next_node = Node(data, None)
-        self.last_node = self.last_node.next_node
+        self.tail.next_node = Node(data, None)
+        self.tail = self.tail.next_node
 
