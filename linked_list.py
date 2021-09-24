@@ -1,7 +1,7 @@
 class Node:
-    def __init__(self, data=None, pointer=None):
+    def __init__(self, data=None, next_node=None):
         self.data = data
-        self.pointer = pointer
+        self.next_node = next_node
 
 class LinkedList:
     def __init__(self):
@@ -16,7 +16,7 @@ class LinkedList:
         node = self.head
         while node:
             out.append(node.data)
-            node = node.pointer
+            node = node.next_node
         return out
 
     def get_user_by_id(self, user_id):
@@ -24,7 +24,7 @@ class LinkedList:
         while node:
             if node.data['id'] is int(user_id):
                 return node.data
-            node = node.pointer
+            node = node.next_node
             return None
 
     def print_ll(self):
@@ -34,11 +34,11 @@ class LinkedList:
             print(None)
         while node:
             ll_string += f"{str(node.data)} ->"
-            node = node.pointer
+            node = node.next_node
         ll_string += 'None'
         print(ll_string)
 
-    def insert_beginning(self, data):
+    def insert_at_heaed(self, data):
         if self.head is None:
             self.head = Node(data, None)
             self.tail = self.head
@@ -46,21 +46,20 @@ class LinkedList:
         new_node = Node(data, self.head)
         self.head = new_node
 
-    def insert_at_end(self, data):
+    def insert_at_tail(self, data):
         if self.head is None:
-            self.insert_beginning(data)
-            return
+            self.insert_at_heaed(data)
+
         # if self.tail is None:
         #     print('The last Node is None')
         #     node = self.head
-        #     while node.pointer:
+        #     while node.next_node:
         #         print('iter', node.data)
-        #         node = node.pointer
+        #         node = node.next_node
         #         
-        #     node.pointer = Node(data, None)
-        #     self.last_ndoe = node.pointer
+        #     node.next_node = Node(data, None)
+        #     self.last_ndoe = node.next_node
 
         # else:
-        self.tail.pointer = Node(data, None)
-        self.tail = self.tail.pointer
-
+        self.tail.next_node = Node(data, None)
+        self.tail = self.tail.next_node
