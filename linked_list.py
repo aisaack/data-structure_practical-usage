@@ -1,5 +1,5 @@
 class Node:
-    def __init__(self, data, next_node=None):
+    def __init__(self, data=None, next_node=None):
         self.data = data
         self.next_node = next_node
 
@@ -63,4 +63,3 @@ class LinkedList:
         # else:
         self.tail.next_node = Node(data, None)
         self.tail = self.tail.next_node
-
